@@ -6,7 +6,8 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"barryvdh/laravel-ide-helper": "dev-master"
+		"barryvdh/laravel-ide-helper": "dev-master",
+		"zizaco/confide": "~4.0@dev"
 	},
 	"autoload": {
 		"classmap": [

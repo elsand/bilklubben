@@ -2,6 +2,9 @@
 
 return array(
 
+
+	'name' => 'Bilklubben',
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application Debug Mode
@@ -52,7 +55,7 @@ return array(
 	|
 	*/
 
-	'locale' => 'nb',
+	'locale' => 'no',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -121,7 +124,8 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider'
+		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+		'Zizaco\Confide\ServiceProvider',
 
 	),
 
@@ -189,6 +193,7 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
+		'Confide'           => 'Zizaco\Confide\Facade',
 
 	),
 

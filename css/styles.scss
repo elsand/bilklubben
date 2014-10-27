@@ -1,0 +1,19 @@
+$text-color-light: #777;
+$text-color-dark: #333;
+
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.main-content {
+  margin-top: 20px;
+}
+
+.navbar-logged-in {
+  float: right;
+  margin-top: 14px;
+  color: $text-color-light;
+}

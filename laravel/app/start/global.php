@@ -67,6 +67,10 @@ App::down(function()
 	return Response::make("Be right back!", 503);
 });
 
+/* Custom injections */
+App::bind('confide.user_validator', 'BilklubbenUserValidator');
+
+
 /*
 |--------------------------------------------------------------------------
 | Require The Filters File
