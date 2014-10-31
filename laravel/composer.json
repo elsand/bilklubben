@@ -7,7 +7,13 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"barryvdh/laravel-ide-helper": "dev-master",
-		"zizaco/confide": "~4.0@dev"
+		"zizaco/confide": "~4.0@dev",
+		"bkwld/croppa": "~3.0"
+	},
+	"require-dev": {
+		"way/generators": "~2.0",
+		"barryvdh/laravel-debugbar": "~1.7",
+		"doctrine/dbal": "~2.3"
 	},
 	"autoload": {
 		"classmap": [

@@ -56,6 +56,7 @@ return array(
 	*/
 
 	'locale' => 'no',
+	'phplocale' => 'nb_NO',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -124,9 +125,13 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
+		// Custom
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-		'Zizaco\Confide\ServiceProvider',
+		'Barryvdh\Debugbar\ServiceProvider',
 
+		'Zizaco\Confide\ServiceProvider',
+		'Way\Generators\GeneratorsServiceProvider',
+		'Bkwld\Croppa\ServiceProvider',
 	),
 
 	/*
@@ -194,7 +199,9 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Confide'           => 'Zizaco\Confide\Facade',
+		'Debugbar'          => 'Barryvdh\Debugbar\Facade',
+		'Croppa'            => 'Bkwld\Croppa\Facade',
+		'Format'            => 'Helpers\Format',
 
 	),
-
 );

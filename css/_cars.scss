@@ -1,0 +1,51 @@
+ul.cars {
+  padding: 0;
+
+  li {
+    list-style: none;
+    float: left;
+    margin: 0 1em;
+    padding: 0 1em 1em;
+    border-bottom: 1px solid $color-light;
+    max-width: 330px;
+  }
+
+  dl {
+    float: left;
+    font-size: $text-size-medium;
+    width: 100%;
+  }
+
+  dt {
+    text-transform: uppercase;
+    color: $color-light;
+    float: left;
+    clear: left;
+  }
+
+  dd {
+    text-align: right;
+    float: right;
+  }
+
+  div {
+    height: 190px;
+    overflow: hidden;
+  }
+
+  img {
+
+  }
+
+  a {
+    float: left;
+    clear: both;
+  }
+}
+
+#js-car-location-map {
+  margin-left: -100000px;
+  width: 500px;
+  height: 400px;
+  @include box-shadow(0, 4px, 16px);
+}
