@@ -15,10 +15,9 @@
 		| {{ Config::get('app.name') }}
 		</title>
 
-		@section('css')
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="{{url('css/styles.css')}}">
-		@show
+		@yield('css')
 
 		@yield('headjs')
 		<!--[if lt IE 9]>
@@ -27,7 +26,7 @@
 		<![endif]-->
 	</head>
 
-	<body>
+	<body id="page-{{ Util::getCurrentRouteAsClassName() }}">
 
 	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
@@ -42,13 +41,23 @@
 				</button>
 				<a class="navbar-brand" href="{{ url('') }}"><span>Bilklubben.no</span></a>
 			</div>
+			<nav>
+				<ul>
+					<li><a href="{{ url('/rentals') }}">Lei bil</a></li>
+					<li><a href="{{ url('/cars') }}">Våre biler</a></li>
+					<li><a href="{{ url('/subscriptions') }}">Abonnement</a></li>
+					<li><a href="{{ url('/users/create') }}">Registrer konto</a></li>
+					<li><a href="{{ url('/about') }}">Om oss</a></li>
+				</ul>
+			</nav>
 		@show
 		@section('navbarlogin')
 			@if ($user = Confide::user())
 			<div class="navbar-logged-in">
-				Logget inn som {{{ $user->first_name . " " . $user->last_name }}} |
-				<a href="">Min side</a> |
-				<a href="{{ url("users/logout") }}">Logg ut</a>
+				Logget inn som {{{ $user->first_name . " " . $user->last_name }}}
+				| <span class="points">{{ $user->points }}</span>
+				| <a href="{{ url("users/mypage") }}">Min side</a>
+				| <a href="{{ url("users/logout") }}">Logg ut</a>
 			</div>
 			@else
 			<div class="navbar-collapse collapse">
@@ -71,6 +80,14 @@
 	@yield('abovecontent')
 
 	<div class="container main-content">
+
+		@if (($error = Session::get('error')))
+			<div class="alert alert-danger" role="alert">{{ $error }}</div>
+		@endif
+
+		@if (($success = Session::get('success')))
+			<div class="alert alert-success" role="alert">{{ $success }}</div>
+		@endif
 
 		@yield('content')
 

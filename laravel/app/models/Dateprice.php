@@ -15,4 +15,10 @@
  */
 
 class Dateprice extends \Eloquent {
+	static public function getUpcoming() {
+		static $upcoming;
+		if (!$upcoming)
+			$upcoming = parent::where('date', '>=', date('Y-m-d'))->get();
+		return $upcoming;
+	}
 }

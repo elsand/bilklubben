@@ -1,5 +1,9 @@
 @extends('layout.default')
 
+@section('title')
+Nytt passord
+@stop
+
 @section('content')
 <form method="POST" action="{{{ URL::to('/users/reset_password') }}}" accept-charset="UTF-8">
     <input type="hidden" name="token" value="{{{ $token }}}">

@@ -1,5 +1,9 @@
 @extends('layout.default')
 
+@section('title')
+Logg inn
+@stop
+
 @section('content')
 <form role="form" method="POST" action="{{{ URL::to('/users/login') }}}" accept-charset="UTF-8">
     <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">

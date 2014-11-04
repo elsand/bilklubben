@@ -9,6 +9,8 @@
  * @property string $model
  * @property integer $year
  * @property string $location
+ * @property integer $seats
+ * @property integer $luggage_volume
  * @property string $image
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -45,10 +47,41 @@ class Car extends \Eloquent {
 		return $query->where('available', '=', 1);
 	}
 
-	public function getLowestPrice() {
+	public function getWeekdayPrice() {
 		if ($this->override_weekday_price)
 			return $this->override_weekday_price;
 
-		return $this->cartype()->get()->first()->price_weekday;
+		static $price_weekday;
+		if (!$price_weekday)
+			$price_weekday = $this->cartype()->select('price_weekday')->get()->first()->price_weekday;
+		return $price_weekday;
+	}
+
+	public function getWeekendPrice() {
+		if ($this->override_weekend_price)
+			return $this->override_weekend_price;
+
+		static $price_weekend;
+		if (!$price_weekend)
+			$price_weekend = $this->cartype()->select('price_weekend')->get()->first()->price_weekend;
+		return $price_weekend;
+	}
+
+	/**
+	 * Returns a map of all the dates with overridden prices as keys and
+	 * the price as value. Takes into account weekday/weekend differences.
+	 *
+	 * @return array
+	 */
+	public function getOverridenPriceDates() {
+		$dates = array();
+		$weekend_price = $this->getWeekendPrice();
+		$weekday_price = $this->getWeekdayPrice();
+		foreach (Dateprice::getUpcoming() as $dateprice) {
+			$dates[$dateprice->date] = Carbon::createFromFormat('Y-m-d', $dateprice->date)->isWeekend()
+					? round($weekend_price + ($weekend_price * $dateprice->percentage / 100))
+					: round($weekday_price + ($weekday_price * $dateprice->percentage / 100));
+		}
+		return $dates;
 	}
 }

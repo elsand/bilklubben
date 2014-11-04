@@ -1,7 +1,16 @@
 .points {
-  color: #ff591c;
+  color: $color-points;
 }
 .points:before {
   content: '\00A4 ';
   margin-right: 1px;
+}
+.large {
+  font-size: $text-size-large;
+}
+.medium {
+  font-size: $text-size-medium;
+}
+h1 {
+  border-bottom: 4px solid $color-dark;
 }

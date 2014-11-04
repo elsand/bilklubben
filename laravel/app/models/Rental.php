@@ -8,6 +8,7 @@
  * @property string $from_date
  * @property string $to_date
  * @property integer $discount
+ * @property integer $paid
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property-read \Car $car
@@ -39,11 +40,8 @@ class Rental extends \Eloquent {
 		             ->where('to_date', '>=', $today);
 	}
 
-	public function getFromDateAttribute($value) {
-		return \Helpers\Format::shortDate($value);
-	}
 
-	public function getToDateAttribute($value) {
-		return \Helpers\Format::shortDate($value);
+	public function getDateRange() {
+		return Util::getDateRange($this->from_date, $this->to_date);
 	}
 }

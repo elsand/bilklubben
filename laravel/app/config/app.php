@@ -201,7 +201,9 @@ return array(
 		'Confide'           => 'Zizaco\Confide\Facade',
 		'Debugbar'          => 'Barryvdh\Debugbar\Facade',
 		'Croppa'            => 'Bkwld\Croppa\Facade',
+		'Carbon'            => 'Carbon\Carbon',
 		'Format'            => 'Helpers\Format',
+		'Util'              => 'Helpers\Util',
 
 	),
 );

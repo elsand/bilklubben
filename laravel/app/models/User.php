@@ -40,7 +40,7 @@ class User extends Eloquent implements ConfideUserInterface {
 		return $this->hasMany('Rental');
 	}
 
-	public function subscriptions() {
-		return $this->hasMany('Subscription');
+	public function subscription() {
+		return $this->hasOne('Subscription');
 	}
 }

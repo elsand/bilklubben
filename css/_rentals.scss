@@ -1,0 +1,43 @@
+#js-rentals-location-map {
+  width: 100%;
+  height: 250px;
+}
+#page-rentals-create {
+  dt {
+    float: left;
+    clear: left;
+  }
+  dd {
+    float: right;
+  }
+}
+#js-rentals-period {
+  margin: 0 0 1em;
+  max-height: 100px;
+  overflow-y: auto;
+
+  dl {
+    font-size: $text-size-medium;
+  }
+
+  dt {
+    font-weight: normal;
+  }
+
+}
+
+#js-rentals-total {
+  dl {
+    margin-bottom: 1em;
+  }
+}
+
+.datepicker {
+  .override_price {
+    text-decoration: underline;
+    text-decoration-color: red;
+  }
+  .disabled {
+    text-decoration: line-through;
+  }
+}

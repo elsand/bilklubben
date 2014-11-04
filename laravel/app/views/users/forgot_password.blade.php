@@ -1,5 +1,9 @@
 @extends('layout.default')
 
+@section('title')
+Glemt passord
+@stop
+
 @section('content')
 <form method="POST" action="{{ URL::to('/users/forgot_password') }}" accept-charset="UTF-8">
     <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">

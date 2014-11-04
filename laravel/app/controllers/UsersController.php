@@ -196,4 +196,18 @@ class UsersController extends BaseController
 
         return Redirect::to('/');
     }
+
+	public function mypage() {
+		if (!($user = Confide::user())) {
+			return Redirect::to('/users/login');
+		}
+
+		$subscription = $user->subscription()->get()->first();
+		return View::make('users.mypage', array(
+			'user' => $user,
+			'subscription' => $subscription,
+			'plan' => $subscription ? $subscription->plan()->get()->first() : null,
+			'rentals' => $user->rentals()->get()->all()
+		));
+	}
 }

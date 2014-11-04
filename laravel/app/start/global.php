@@ -68,6 +68,11 @@ App::down(function()
 	return Response::make("Be right back!", 503);
 });
 
+App::missing(function()
+{
+    return Response::view('errors.missing', array(), 404);
+});
+
 /* Custom injections */
 App::bind('confide.user_validator', 'BilklubbenUserValidator');
 

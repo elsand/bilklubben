@@ -1,5 +1,9 @@
 @mixin box-shadow($left:0, $top:2px, $blur:2px, $color:#000, $inset:"") {
-      -webkit-box-shadow:$left $top $blur $color #{$inset};
-      -moz-box-shadow:$left $top $blur $color #{$inset};
-      box-shadow:$left $top $blur $color #{$inset};
+  -webkit-box-shadow:$left $top $blur $color #{$inset};
+  -moz-box-shadow:$left $top $blur $color #{$inset};
+  box-shadow:$left $top $blur $color #{$inset};
+}
+
+@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
+  text-shadow: $x $y $blur $color;
 }

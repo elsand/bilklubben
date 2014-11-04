@@ -14,7 +14,7 @@ Våre biler
 
 <h1>Våre biler</h1>
 <p>Under ser du en oversikt over vår bilstall. Ikke alle bilene er til enhver tid tilgjengelig. Lorem ipsum etc etc.</p>
-<ul class="cars">
+<ul class="cars clearfix">
 @foreach ($cars as $car)
 <?php
 	$is_available = true;
@@ -22,7 +22,7 @@ Våre biler
 
 	if ($rental = $car->rentals()->active()->get()->first()) {
 		$is_available = false;
-		$available_text = "Nei, utleid til " . $rental->to_date;
+		$available_text = "Nei, utleid til " . Format::shortDate($rental->to_date);
 	}
 	else if (!$car->available) {
 		$is_available = false;
@@ -40,13 +40,14 @@ Våre biler
 		<dl>
 		<dt>Type</dt><dd>{{ $car->cartype()->get()->first()->name }}</dd>
 		<dt>Årsmodell</dt><dd>{{ $car->year }}</dd>
+		<dt>Ant. seter / bagasjevolum</dt><dd>{{ $car->seats }} / {{ $car->luggage_volume }}L</dd>
 		<dt>Tilgjengelig</dt><dd>{{ $available_text }}</dd>
-		<dt>Poengpris/dag</dt><dd>Fra <span class="points">{{ $car->getLowestPrice() }}</span></dd>
+		<dt>Poengpris/dag</dt><dd>Fra <span class="points">{{ $car->getWeekdayPrice() }}</span></dd>
 		<dt>Lokasjon</dt><dd><a href="javascript:showMap({{ $lat }}, {{ $lng }})">Åpne kart</a></dd>
 		</dl>
 
 		@if ($is_available)
-			<a role="button" class="btn btn-primary" href="{{ url('/rentals/' . $car->id) }}">Lei denne bilen!</a>
+			<a role="button" class="btn btn-primary" href="{{ url('/rentals/create/' . $car->id) }}">Lei denne bilen!</a>
 		@else
 			<a role="button" class="btn btn-default disabled">Ikke tilgjengelig!</a>
 		@endif

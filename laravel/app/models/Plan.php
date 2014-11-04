@@ -3,6 +3,7 @@
  * Plan
  *
  * @property integer $id
+ * @property string $name
  * @property integer $monthlycost
  * @property integer $points
  * @property \Carbon\Carbon $created_at
@@ -17,6 +18,6 @@
 class Plan extends \Eloquent {
 
 	public function subscriptions() {
-		return $this->hasOne('Subscription');
+		return $this->hasMany('Subscription');
 	}
 }

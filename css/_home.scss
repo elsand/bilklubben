@@ -1,0 +1,45 @@
+.frontpage-box { 
+  min-height: 220px;
+  position: relative;
+
+  .bottom {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .huge {
+    font-size: 155px;
+    line-height: 81px;
+  }
+  .car {
+    margin: 10px 0 0 -10px;
+  }
+}
+
+.jumbotron {
+  background-image: url("../gfx/header-bg.jpg");
+  background-size: cover;
+  background-position: top;
+  h1 {
+      border-bottom: none;
+    }
+}
+
+nav {
+  ul {
+    float: left;
+    margin-top: 14px;
+  }
+  li {
+    float: left;
+    list-style: none;
+    margin-right: 20px;
+  }
+  a {
+    color: $color-points;
+  }
+}
+
+.news {
+  color: transparentize($color-dark, 0.4)
+}

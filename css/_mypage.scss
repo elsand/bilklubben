@@ -1,0 +1,21 @@
+#page-users-mypage {
+  dt {
+    float: left;
+    clear: left;
+  }
+  dd {
+    float: right;
+    text-align: right;
+  }
+  .subsc {
+    button {
+      margin-top: -24px;
+    }
+  }
+  table {
+    width: 100%;
+  }
+  thead {
+    border-bottom: 2px solid $color-dark;
+  }
+}

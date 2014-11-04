@@ -5,11 +5,22 @@
 
     RewriteEngine On
 
-    # Redirect Trailing Slashes...
-    RewriteRule ^(.*)/$ /$1 [L,R=301]
+    # Redirect Trailing Slashes.
+    # If development server
+    RewriteCond %{HTTP_HOST} =debian
+    RewriteRule ^(.*)/$ /~bjorn/wtr/prosjekt/$1 [L,R=301]
+    # If live
+    RewriteRule ^(.*)/$ /~bjorndl/wtr/prosjekt/$1 [L,R=301]
 
-    # Handle Front Controller...
+    # Handle Front Controller
+    # If development server
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{HTTP_HOST} =debian
     RewriteRule ^ /~bjorn/wtr/prosjekt/index.php [L]
+
+	# If live
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ /~bjorndl/wtr/prosjekt/index.php [L]
 </IfModule>

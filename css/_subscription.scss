@@ -1,0 +1,34 @@
+span.subsc {
+  font-size: $text-size-large;
+  @include text-shadow(1px, 1px, 2px, rgba(0,0,0,1));
+}
+
+span.subsc-bronse {
+   color: #ff591c;
+}
+
+span.subsc-soelv {
+ color: silver;
+}
+
+span.subsc-gull {
+ color: gold;
+}
+
+span.subsc-platinum {
+ color: lightblue;
+}
+
+#page-subscriptions-index {
+  dt {
+    float: left;
+    clear: left;
+  }
+  dd {
+    float: left;
+    margin-left: 30px;
+    button {
+      margin-top: 16px;
+    }
+  }
+}

@@ -5,10 +5,10 @@
  *
  * Implements actions regarding car management
  */
-class CarsController extends Controller
+class CarsController extends BaseController
 {
-	public function all() {
+	public function index() {
 		$cars = Car::all();
-		return View::make('cars.list', array('cars' => $cars));
+		return View::make('cars.index', array('cars' => $cars));
 	}
 }
