@@ -14,6 +14,6 @@ return array(
 	*/
 
 	'debug' => false,
-	'url' => 'http://stud.aitel.hist.no/~bjorndl/wtr/prosjekt/',
+	'url' => 'http://langfors.no/IINI2001-A/prosjekt/',
 
 );

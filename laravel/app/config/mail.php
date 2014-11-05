@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'bjorndl+bilklubben@stud.hist.no', 'name' => 'Bilklubben'),
+	'from' => array('address' => 'bjorn+bilklubben@langfors.no', 'name' => 'Bilklubben'),
 
 	/*
 	|--------------------------------------------------------------------------

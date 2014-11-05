@@ -10,7 +10,7 @@
     RewriteCond %{HTTP_HOST} =debian
     RewriteRule ^(.*)/$ /~bjorn/wtr/prosjekt/$1 [L,R=301]
     # If live
-    RewriteRule ^(.*)/$ /~bjorndl/wtr/prosjekt/$1 [L,R=301]
+    RewriteRule ^(.*)/$ /IINI2001-A/prosjekt/$1 [L,R=301]
 
     # Handle Front Controller
     # If development server
@@ -22,5 +22,5 @@
 	# If live
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ /~bjorndl/wtr/prosjekt/index.php [L]
+    RewriteRule ^ /IINI2001-A/prosjekt/index.php [L]
 </IfModule>
